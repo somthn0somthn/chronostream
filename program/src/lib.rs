@@ -1,14 +1,19 @@
-pub fn add(left: u64, right: u64) -> u64 {
-    left + right
-}
+use solana_program::{
+    entrypoint,
+    entrypoint::ProgramResult,
+    pubkey::Pubkey,
+    account_info::AccountInfo,
+};
 
-#[cfg(test)]
-mod tests {
-    use super::*;
+pub mod state;
+pub mod processor;
 
-    #[test]
-    fn it_works() {
-        let result = add(2, 2);
-        assert_eq!(result, 4);
-    }
+entrypoint!(process_instruction);
+
+pub fn process_instruction(
+    program_id: &Pubkey,
+    accounts: &[AccountInfo],
+    instruction_data: &[u8],
+) -> ProgramResult {
+    processor::process_instruction(program_id, accounts, instruction_data)
 }
