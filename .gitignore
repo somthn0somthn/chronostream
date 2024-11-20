@@ -1,0 +1,36 @@
+# Rust/Solana specific
+/target/
+/program/target/
+**/*.rs.bk
+*.so
+
+# Editor/IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Environment
+.env
+.env.*
+
+# Debug logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Operating System
+.DS_Store
+Thumbs.db
+
+# Optional npm/node stuff (for when you add client)
+node_modules/
+dist/
+build/
+
+# Solana deploy artifacts
+/dist/program/
+*.keypair.json
+
+# Test artifacts
+test-ledger/
